@@ -2,7 +2,7 @@
   <form
     @submit.prevent="formSubmit"
     :class="{'max-w-lg': !homepage}"
-    class="flex self-start w-full h-full text-lg text-teal-100"
+    class="flex self-start w-full h-full text-lg text-white"
   >
     <div
       v-if="open"
@@ -15,8 +15,8 @@
         ref="input"
         v-model="summoner"
         @focus="open = true"
-        :class="dropdown ? 'bg-blue-1000' : 'input-color'"
-        class="relative z-30 w-full py-4 pl-6 pr-32 font-bold placeholder-teal-100 placeholder-opacity-75 rounded-lg outline-none focus:bg-blue-1000 summoner-input bypass-click"
+        :class="dropdown ? 'bg-gray-800' : 'bg-gray-800'"
+        class="relative z-30 w-full py-4 pl-6 pr-32 font-bold placeholder-white placeholder-opacity-75 rounded-lg outline-none focus:bg-gray-900 summoner-input bypass-click"
         spellcheck="false"
         type="text"
         placeholder="Search Summoner"

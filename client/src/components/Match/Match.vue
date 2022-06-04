@@ -21,17 +21,12 @@
             <div class="flex">
               <div class="flex flex-col items-center justify-end">
                 <div
-                  v-if="data.role !== 'NONE'"
-                  :style="{backgroundImage: `url(${require('@/assets/img/roles/' + data.role + '.png')})`}"
-                  class="w-10 h-10 bg-center bg-cover"
-                ></div>
-                <div
                   class="w-10 text-xs font-extrabold text-center text-teal-500"
                 >LVL {{ data.level }}</div>
               </div>
               <div
                 :style="{backgroundImage: `url('${data.champion.icon}')`}"
-                class="w-16 h-16 ml-2 rounded-lg crop-champion bg-blue-1000"
+                class="w-16 h-16 ml-2 rounded-full crop-champion bg-blue-1000"
               ></div>
               <div class="flex flex-col justify-around ml-2">
                 <div
@@ -163,24 +158,10 @@
             </div>
           </div>
           <div class="flex flex-col items-center justify-center ml-auto">
-            <svg class="w-5 h-5 text-blue-200">
-              <use xlink:href="#stopwatch" />
-            </svg>
             <div class="text-lg font-medium text-teal-400">{{ (data.time)|secToTime }}</div>
-            <Tooltip>
-              <template #trigger>
-                <div class="text-xs font-medium text-white">{{ data.date }}</div>
-              </template>
-              <template #default>
-                <div class="px-2 text-xs leading-tight text-center text-white select-none">
-                  <svg class="w-4 h-4 mx-auto text-teal-400">
-                    <use xlink:href="#time" />
-                  </svg>
-                  <div class="mt-1">{{ data.fullDate.date }}</div>
-                  <div>{{ data.fullDate.time }}</div>
-                </div>
-              </template>
-            </Tooltip>
+            <div class="text-xs font-medium text-white">{{ data.date }}</div>
+            <div class="text-xs font-medium text-white">{{ data.fullDate.date }}</div>
+            <div class="text-xs font-medium text-white">{{ data.fullDate.time }}</div>
           </div>
         </div>
       </div>
@@ -191,7 +172,6 @@
 
 <script>
 import { mapActions, mapState, mapGetters } from 'vuex'
-import Tooltip from '@/components/Common/Tooltip.vue'
 import DetailedMatch from '@/components/Match/DetailedMatch.vue'
 import MatchItems from '@/components/Match/MatchItems.vue'
 import Ripple from '@/components/Common/Ripple.vue'
@@ -199,7 +179,6 @@ import Ripple from '@/components/Common/Ripple.vue'
 export default {
   components: {
     DetailedMatch,
-    Tooltip,
     MatchItems,
     Ripple,
   },

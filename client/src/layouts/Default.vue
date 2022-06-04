@@ -81,11 +81,11 @@
                 <div :class="{'playing': playing}" class="relative w-24 h-24">
                   <div
                     :class="{'border-2': !playing}"
-                    class="relative z-10 w-24 h-24 bg-center bg-cover border-teal-400 rounded-full bg-blue-1000"
+                    class="relative z-10 w-24 h-24 bg-center bg-cover border-black rounded-full bg-gray-900"
                     :style="{backgroundImage: `url('https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/${basic.account.profileIconId}.jpg')`}"
                   >
                     <div
-                      class="absolute bottom-0 left-0 flex items-center justify-center w-8 h-8 text-xs font-extrabold text-teal-500 bg-blue-900 border-2 border-teal-400 rounded-full"
+                      class="absolute bottom-0 left-0 flex items-center justify-center w-8 h-8 text-xs font-extrabold text-white bg-gray-900 border-2 border-black rounded-full"
                     >{{ basic.account.summonerLevel }}</div>
                   </div>
                 </div>
@@ -219,7 +219,7 @@ export default {
 
 <style scoped>
 .header-scrolled {
-  background-color: rgba(42, 67, 101, 0.95);
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
 .discord svg {

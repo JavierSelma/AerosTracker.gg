@@ -52,11 +52,11 @@ button:focus {
 }
 
 .bg-gradient {
-  background: linear-gradient(180deg, #2C5282 0%, rgba(44, 82, 130, 0) 100%);
+  background: linear-gradient(180deg, #296804 0%, rgba(44, 82, 130, 0) 100%);
 }
 
 .bg-gradient-x {
-  background: linear-gradient(270deg, rgba(44,82,130,1) 0%, rgba(44,82,130,0) 100%);
+  background: linear-gradient(270deg, #296804 0%, rgba(44,82,130,0) 100%);
 }
 
 .text-overflow {

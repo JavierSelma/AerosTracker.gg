@@ -1,5 +1,5 @@
 <template>
-  <div class="relative overflow-hidden bg-blue-900">
+  <div class="relative overflow-hidden bg-gray-900">
     <LazyBackground
       :image-source="require('@/assets/img/vi-warring-kingdoms.jpg')"
       image-class="absolute inset-0 bg-center"

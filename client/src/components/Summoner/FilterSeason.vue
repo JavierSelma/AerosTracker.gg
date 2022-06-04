@@ -1,5 +1,5 @@
 <template>
-  <div class="relative self-end inline-block leading-none text-blue-200 group">
+  <div class="relative self-end inline-block leading-none textwhite group">
     <select
       v-model="season"
       @change="filterSeason"

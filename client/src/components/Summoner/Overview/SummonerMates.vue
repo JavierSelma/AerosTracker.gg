@@ -1,22 +1,14 @@
 <template>
-  <div class="mt-4 bg-blue-800 rounded-lg">
+  <div class="mt-4 bg-gray-900 rounded-lg">
     <div class="pb-2">
-      <div class="flex items-center justify-center py-4 text-blue-200 rounded-t-lg heading">
-        <svg class="w-5 h-5" style="transform: rotate(-5deg);">
-          <use xlink:href="#people" />
-        </svg>
-        <span class="mx-4 text-lg font-semibold uppercase">FRIENDS</span>
-        <svg class="w-5 h-5" style="transform: rotate(5deg);">
-          <use xlink:href="#people" />
-        </svg>
-      </div>
+      <span class="mx-4 text-lg font-semibold uppercase">FRIENDS</span>
       <div v-if="hasMates" class="px-4 py-2 text-sm text-left">
-        <div class="flex items-baseline text-xs font-semibold text-blue-300 uppercase">
-          <div class="w-2/4 text-base text-blue-400">Summoner</div>
+        <div class="flex items-baseline text-xs font-semibold uppercase">
+          <div class="w-2/4 text-base">Summoner</div>
           <div class="w-1/4">Record</div>
           <div class="w-1/4">Winrate</div>
         </div>
-        <ul class="mt-1 text-gray-100">
+        <ul class="mt-1 text-gray-500">
           <li
             v-for="mate in mates.slice(0, maxMates)"
             :key="mate.name"
@@ -27,30 +19,7 @@
               class="w-2/4 truncate hover:text-teal-200"
             >{{ mate.name }}</router-link>
             <div class="w-1/4">{{ mate.wins }} / {{ mate.losses }}</div>
-            <div class="w-1/4">
-              <Tooltip>
-                <template #trigger>
-                  <div class="h-2 bg-blue-900 rounded-full cursor-pointer">
-                    <div
-                      :class="getWinrateColor(mate.wins, mate.count)"
-                      :style="{width: `${winrate(mate.wins, mate.count)}%`}"
-                      class="h-full rounded-full"
-                    ></div>
-                  </div>
-                </template>
-                <template #default>
-                  <div class="px-2 text-xs text-center text-white">
-                    <div>Winrate</div>
-                    <div>
-                      <span
-                        :class="getWinrateColor(mate.wins, mate.count, false)"
-                        class="font-bold"
-                      >{{ winrate(mate.wins, mate.count)|percent }}</span>
-                    </div>
-                  </div>
-                </template>
-              </Tooltip>
-            </div>
+            <div class="w-1/4"> {{ winrate(mate.wins, mate.count) }} % </div>
           </li>
         </ul>
       </div>
@@ -64,11 +33,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import Tooltip from '@/components/Common/Tooltip.vue'
 
 export default {
   components: {
-    Tooltip,
   },
 
   data() {
@@ -99,7 +66,8 @@ export default {
       return background ? 'bg-teal-200' : 'text-teal-200'
     },
     winrate(wins, count) {
-      return wins * 100 / count
+      let winrate = wins * 100 / count
+      return Math.trunc(winrate)
     }
   }
 }

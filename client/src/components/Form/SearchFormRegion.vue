@@ -26,7 +26,7 @@
           :key="region"
           @click="selectRegion(region)"
           :class="classRegions(index)"
-          class="relative py-1 pl-5 pr-2 text-xs text-right select-none bg-blue-1000 hover:bg-blue-800"
+          class="relative py-1 pl-5 pr-2 text-xs text-right select-none bg-gray-900 hover:bg-blue-800"
         >
           <svg
             v-if="region.toLowerCase() === selectedRegion"

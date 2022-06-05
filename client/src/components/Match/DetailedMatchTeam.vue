@@ -1,27 +1,23 @@
 <template>
   <table
-    :class="[{ 'rounded-b-lg overflow-hidden': !allyTeam }, data.result]"
     class="w-full table-fixed"
   >
     <thead class="leading-none heading-detailed">
       <tr
         :style="getHeadingColor(data.result)"
-        class="relative font-semibold text-blue-200 heading-row"
+        class="relative font-semibold text-white heading-row"
       >
         <th class="py-5 w-players">
           <div class="flex justify-between">
             <span
-              :class="allyTeam ? 'text-teal-400' : 'text-red-400'"
+              :class="allyTeam ? 'text-white' : 'text-white'"
               class="pl-2"
             >{{ allyTeam ? "Ally" : "Enemy" }} Team</span>
             <div
               v-if="data.result === 'Win'"
-              :class="allyTeam ? 'text-teal-400' : 'text-red-400'"
+              :class="allyTeam ? 'text-white' : 'text-white'"
               class="flex pr-2"
             >
-              <svg class="items-center w-4 h-4">
-                <use xlink:href="#award" />
-              </svg>
               <span class="ml-2px">VICTORY</span>
             </div>
           </div>
@@ -52,11 +48,11 @@
       </tr>
     </thead>
     <tbody
-      :class="{ 'border-b border-blue-700': allyTeam }"
+      :class="{ 'border-b border-black': allyTeam }"
       class="leading-none"
     >
       <tr v-for="(player, index) in data.players" :key="player.name + index">
-        <td class="py-2 border-r border-blue-700">
+        <td class="py-2 border-r border-black">
           <div class="flex justify-between px-1">
             <div class="flex">
               <div class="flex items-center">
@@ -72,13 +68,13 @@
               </div>
               <div
                 :style="{ backgroundImage: `url('${player.champion.icon}')` }"
-                class="relative w-8 h-8 ml-2 bg-center bg-cover rounded-full bg-blue-1000"
+                class="relative w-8 h-8 ml-2 bg-center bg-cover rounded-full bg-gray-900"
               >
                 <div
                   :class="
                     allyTeam
-                      ? 'bg-teal-500 text-teal-100'
-                      : 'bg-red-500 text-red-100'
+                      ? 'bg-gray-700 text-white'
+                      : 'bg-gray-700 text-white'
                   "
                   class="absolute bottom-0 flex items-center justify-center w-4 h-4 rounded-full level-position text-xxs"
                 >
@@ -95,7 +91,7 @@
                         })`,
                       }"
                       :class="{ 'cursor-pointer': player.summonerSpell1 }"
-                      class="w-4 h-4 bg-center bg-cover rounded-md bg-blue-1000"
+                      class="w-4 h-4 bg-center bg-cover rounded-md bg-gray-900"
                     ></div>
                   </template>
                   <template v-if="player.summonerSpell1" #default>
@@ -106,13 +102,13 @@
                         :style="{
                           backgroundImage: `url('${player.summonerSpell1.icon}')`,
                         }"
-                        class="flex-shrink-0 w-12 h-12 ml-1 bg-center bg-cover rounded-md bg-blue-1000"
+                        class="flex-shrink-0 w-12 h-12 ml-1 bg-center bg-cover rounded-md bg-gray-900"
                       ></div>
                       <div class="ml-2 leading-tight">
                         <div class="text-base leading-none">
                           {{ player.summonerSpell1.name }}
                         </div>
-                        <div class="mt-1 font-light text-blue-200">
+                        <div class="mt-1 font-light text-white">
                           {{ player.summonerSpell1.description }}
                         </div>
                       </div>
@@ -128,7 +124,7 @@
                         })`,
                       }"
                       :class="{ 'cursor-pointer': player.summonerSpell2 }"
-                      class="w-4 h-4 bg-center bg-cover rounded-md bg-blue-1000"
+                      class="w-4 h-4 bg-center bg-cover rounded-md bg-gray-900"
                     ></div>
                   </template>
                   <template v-if="player.summonerSpell2" #default>
@@ -139,13 +135,13 @@
                         :style="{
                           backgroundImage: `url('${player.summonerSpell2.icon}')`,
                         }"
-                        class="flex-shrink-0 w-12 h-12 ml-1 bg-center bg-cover rounded-md bg-blue-1000"
+                        class="flex-shrink-0 w-12 h-12 ml-1 bg-center bg-cover rounded-md bg-gray-900"
                       ></div>
                       <div class="ml-2 leading-tight">
                         <div class="text-base leading-none">
                           {{ player.summonerSpell2.name }}
                         </div>
-                        <div class="mt-1 font-light text-blue-200">
+                        <div class="mt-1 font-light text-white">
                           {{ player.summonerSpell2.description }}
                         </div>
                       </div>
@@ -168,7 +164,7 @@
                           }
                           : '',
                       ]"
-                      class="w-4 h-4 rounded-md bg-blue-1000"
+                      class="w-4 h-4 rounded-md bg-gray-900"
                     ></div>
                     <div
                       :style="[
@@ -178,7 +174,7 @@
                           }
                           : '',
                       ]"
-                      class="w-4 h-4 rounded-md bg-blue-1000"
+                      class="w-4 h-4 rounded-md bg-gray-900"
                     ></div>
                   </div>
                 </template>
@@ -187,7 +183,6 @@
                     class="px-2 text-sm leading-relaxed text-center text-white select-none"
                   >
                     <p>Click to display</p>
-                    <p class="font-bold text-teal-400">full runes</p>
                   </div>
                 </template>
               </Tooltip>
@@ -204,15 +199,15 @@
                     'font-semibold text-yellow-400':
                       account.id === player.summonerId,
                   }"
-                  class="overflow-hidden text-xs text-left text-white whitespace-no-wrap w-22 text-overflow hover:text-blue-200"
+                  class="overflow-hidden text-xs text-left text-gray-500 whitespace-no-wrap w-22 text-overflow hover:text-white"
                 >{{ player.name }}</router-link>
                 <div
                   v-else
-                  class="overflow-hidden text-xs text-left text-white whitespace-no-wrap w-22 text-overflow"
+                  class="overflow-hidden text-xs text-left text-gray-500 whitespace-no-wrap w-22 text-overflow"
                 >
                   {{ player.name }}
                 </div>
-                <div class="text-teal-500 text-xxs">
+                <div class="text-gray-400 text-xxs">
                   {{ player.champion.name }}
                 </div>
               </div>
@@ -224,7 +219,7 @@
                     :xlink:href="`#rank-${player.rank.tier.toLowerCase()}`"
                   />
                 </svg>
-                <div class="text-blue-300 text-xxs">
+                <div class="text-gray-600 text-xxs">
                   {{ player.rank.shortName }}
                 </div>
               </div>
@@ -232,7 +227,7 @@
                 <DotsLoader width="30px" dot-width="10px" />
               </div>
               <div v-else class="w-5 h-5">
-                <div class="-mt-1 text-2xl text-blue-300">-</div>
+                <div class="-mt-1 text-2xl text-white">-</div>
               </div>
               <MatchItems :items="player.items" :one-row="true" />
             </div>
@@ -240,7 +235,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'kills')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ player.stats.kills }}
@@ -248,7 +242,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'deaths')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ player.stats.deaths }}
@@ -256,7 +249,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'assists')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ player.stats.assists }}
@@ -264,7 +256,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'minions')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ player[statsFormat].minions }}
@@ -272,7 +263,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'vision')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ player[statsFormat].vision }}
@@ -280,7 +270,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'gold')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ roundStats(player[statsFormat].gold) }}
@@ -288,7 +277,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'dmgChamp')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ roundStats(player[statsFormat].dmgChamp) }}
@@ -296,7 +284,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'dmgObj')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ roundStats(player[statsFormat].dmgObj) }}
@@ -304,7 +291,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'dmgTaken')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ roundStats(player[statsFormat].dmgTaken) }}
@@ -312,7 +298,6 @@
         </td>
         <td class="relative">
           <div
-            :style="bgColor(player, 'kp')"
             class="absolute inset-0 flex items-center justify-center p-2 text-sm text-white"
           >
             {{ player.stats.kp }}
@@ -324,7 +309,6 @@
 </template>
 
 <script>
-import { colors } from '@/data/data.js'
 import { mapActions, mapState } from 'vuex'
 import DotsLoader from '@/components/Common/DotsLoader.vue'
 import Tooltip from '@/components/Common/Tooltip.vue'
@@ -385,8 +369,7 @@ export default {
       }
 
       return {
-        backgroundColor: `rgba(${colors[stats]}, ${opacity})`,
-        ...biggestValueStyle,
+        opacity
       }
     },
     displayBorderbottom(index) {
@@ -394,20 +377,15 @@ export default {
     },
     getHeadingColor(result) {
       switch (result) {
-        case 'Win':
+        case 'Win2':
           return {
             '--bg-img':
-              'linear-gradient(90deg, rgba(1, 97, 28, 0.3) 0%, rgba(44, 82, 130, 0) 45% )',
+              'linear-gradient(90deg, rgba(1, 97, 28, 0.3) 0%, rgba(44, 82, 130, 0) 200% )',
           }
-        case 'Fail':
+        case 'Fail2':
           return {
             '--bg-img':
-              'linear-gradient(90deg, rgba(140, 0, 0, 0.3) 0%, rgba(44, 82, 130, 0) 45% )',
-          }
-        default:
-          return {
-            '--bg-img':
-              'linear-gradient(90deg, rgba(233, 169, 75, 0.3) 0%, rgba(44, 82, 130, 0) 45% )',
+              'linear-gradient(90deg, rgba(140, 0, 0, 0.3) 0%, rgba(44, 82, 130, 0) 200% )',
           }
       }
     },

@@ -9,12 +9,12 @@
       >
         <template #trigger>
           <div
-            :class="[allyTeam ? 'ban-blue border-teal-500' : 'ban-red border-red-500']"
+            :class="[allyTeam ? 'ban-blue border-white' : 'ban-red border-white']"
             class="relative border-2 rounded-full cursor-pointer ban"
           >
             <div
               :style="[ban.champion.id ? {backgroundImage: `url('${ban.champion.icon}')`} : '']"
-              class="w-6 h-6 bg-center bg-cover rounded-full ban-img bg-blue-1000"
+              class="w-6 h-6 bg-center bg-cover rounded-full ban-img bg-gray-900"
             ></div>
             <div
               :class="[textLightColor, bgColor]"
@@ -93,13 +93,13 @@ export default {
 
   computed: {
     textLightColor() {
-      return this.allyTeam ? 'text-teal-100' : 'text-red-100'
+      return this.allyTeam ? 'text-white' : 'text-white'
     },
     textColor() {
-      return this.allyTeam ? 'text-teal-400' : 'text-red-400'
+      return this.allyTeam ? 'text-white' : 'text-white'
     },
     bgColor() {
-      return this.allyTeam ? 'bg-teal-500' : 'bg-red-500'
+      return this.allyTeam ? 'bg-black' : 'bg-black'
     }
   }
 }

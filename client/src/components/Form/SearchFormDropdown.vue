@@ -1,7 +1,7 @@
 <template>
   <div
     :class="homepage ? 'mt-2' : 'mt-1'"
-    class="absolute z-30 w-full bg-blue-800 rounded-lg shadow-md"
+    class="absolute z-30 w-full rounded-lg shadow-md"
   >
     <div class="shadow">
       <div class="pt-3">
@@ -15,7 +15,7 @@
             ref="input"
             @input="$emit('input', $event.target.value)"
             :value="value"
-            class="w-full py-2 pl-12 pr-32 placeholder-blue-200 placeholder-opacity-75 bg-blue-700 border border-blue-500 rounded-md outline-none focus:bg-blue-760 summoner-input"
+            class="w-full py-2 pl-12 pr-32 placeholder-blue-200 placeholder-opacity-0 bg-blue-700 border border-blue-500 rounded-md outline-none focus:bg-blue-760 summoner-input"
             type="text"
             placeholder="Search summoner"
             spellcheck="false"

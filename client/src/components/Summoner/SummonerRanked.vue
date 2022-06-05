@@ -20,7 +20,7 @@
         <div class="ml-4 text-2xl font-bold">{{ selectedLeague.leaguePoints }} LP</div>
         <div
           v-if="selectedLeague.miniSeries"
-          class="flex items-center p-2 ml-2 bg-blue-800 rounded"
+          class="flex items-center p-2 ml-2 bg-gray-900 rounded"
         >
           <div
             v-for="(result, index) in bo"
@@ -34,7 +34,7 @@
         <div class="relative inline-block text-white">
           <select
             v-model="selectedKey"
-            class="block w-full px-4 py-2 pr-8 text-lg font-bold leading-tight bg-gray-900 rounded-md appearance-none cursor-pointer hover:bg-blue-700 focus:outline-none"
+            class="block w-full px-4 py-2 pr-8 text-lg font-bold leading-tight bg-gray-900 rounded-md appearance-none cursor-pointer hover:bg-gray-900 focus:outline-none"
           >
             <option
               v-for="(data, leagueName) in ranked"

@@ -1,6 +1,6 @@
 <template>
   <transition name="slide">
-    <div v-if="data.status === 'loaded' && detailsOpen" class="bg-blue-800 rounded-b-lg">
+    <div v-if="data.status === 'loaded' && detailsOpen" class="bg-gray-900 rounded-b-lg">
       <DetailedMatchTeam
         :data="allyTeam"
         :all-players="[...allyTeam.players, ...enemyTeam.players]"
@@ -10,13 +10,6 @@
 
       <div class="flex items-start justify-between px-3 py-2">
         <DetailedMatchGlobalStats :team="allyTeam" :ally-team="true" />
-        <SwitchToggle
-          @updateValue="updatePercent"
-          left-label="%"
-          right-label="Total"
-          :value="percentSettings"
-          class="mt-2"
-        ></SwitchToggle>
         <DetailedMatchGlobalStats :team="enemyTeam" :ally-team="false" />
       </div>
 
@@ -28,7 +21,7 @@
       />
     </div>
     <div v-else-if="data.status === 'loading' && detailsOpen">
-      <div class="py-5 bg-blue-800 rounded-b-lg">
+      <div class="py-5 bg-gray-900 rounded-b-lg">
         <CubeLoader />
       </div>
     </div>
@@ -40,14 +33,12 @@ import { mapActions, mapState } from 'vuex'
 import CubeLoader from '@/components/Common/CubeLoader.vue'
 import DetailedMatchGlobalStats from '@/components/Match/DetailedMatchGlobalStats.vue'
 import DetailedMatchTeam from '@/components/Match/DetailedMatchTeam.vue'
-import SwitchToggle from '@/components/Form/SwitchToggle.vue'
 
 export default {
   components: {
     CubeLoader,
     DetailedMatchGlobalStats,
     DetailedMatchTeam,
-    SwitchToggle,
   },
   props: {
     data: {

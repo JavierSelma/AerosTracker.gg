@@ -4,7 +4,7 @@
       @click.native="displayDetails"
       color="rgba(43, 108, 176, 0.7)"
       :class="[data.result, showDetails ? 'rounded-t-lg' : 'rounded-lg', {'mt-4': indexMatch !== 0 }]"
-      class="relative text-base text-white bg-blue-800 cursor-pointer match hover:shadow-xl"
+      class="relative text-base text-white bg-black cursor-pointer match hover:shadow-xl"
     >
       <div class="relative flex flex-wrap px-5 py-3">
         <div
@@ -15,13 +15,13 @@
         <div class="w-4/12 text-left first">
           <div>
             <div
-              class="h-6 text-lg font-extrabold leading-none text-teal-500 uppercase"
+              class="h-6 text-lg font-extrabold leading-none text-white uppercase"
             >{{ data.champion.name }}</div>
 
             <div class="flex">
               <div class="flex flex-col items-center justify-end">
                 <div
-                  class="w-10 text-xs font-extrabold text-center text-teal-500"
+                  class="w-10 text-xs font-extrabold text-center text-gray-500"
                 >LVL {{ data.level }}</div>
               </div>
               <div
@@ -59,7 +59,7 @@
                 ></div>
               </div>
               <div class="flex flex-col items-center justify-center mx-auto leading-none">
-                <div class="text-xl font-extrabold text-teal-500">
+                <div class="text-xl font-extrabold text-white">
                   <span class>{{ data.stats.kills }}</span>
                   <span class>/</span>
                   <span class>{{ data.stats.deaths }}</span>
@@ -86,7 +86,7 @@
               <svg style="width: 15px; height: 15px;">
                 <use xlink:href="#creeps" />
               </svg>
-              <div class="ml-1 text-sm font-bold text-teal-300">
+              <div class="ml-1 text-sm font-bold text-white">
                 {{ data.stats.minions }}
                 <span class="font-normal">cs</span>
               </div>
@@ -95,19 +95,19 @@
               <svg style="width: 15px; height: 15px;">
                 <use xlink:href="#gold" />
               </svg>
-              <div class="ml-1 text-sm font-bold gold">{{ data.stats.gold|kilo }}</div>
+              <div class="ml-1 text-sm font-bold ">{{ data.stats.gold|kilo }}</div>
             </div>
             <div class="flex items-center">
               <svg style="width: 15px; height: 15px;">
                 <use xlink:href="#damage" />
               </svg>
-              <div class="ml-1 text-sm font-bold damage">{{ data.stats.dmgChamp|kilo }}</div>
+              <div class="ml-1 text-sm font-bold">{{ data.stats.dmgChamp|kilo }}</div>
             </div>
             <div class="flex items-center">
               <svg style="width: 15px; height: 15px;">
                 <use xlink:href="#kill-participation" />
               </svg>
-              <div class="ml-1 text-sm font-bold kp">{{ data.stats.kp|percent }}</div>
+              <div class="ml-1 text-sm font-bold">{{ data.stats.kp|percent }}</div>
             </div>
           </div>
         </div>
@@ -149,16 +149,16 @@
                 v-if="data.enemyTeam[index].account_id !== '0'"
                 @click.native="$event.stopImmediatePropagation()"
                 :to="{ name: 'summoner', params: { region: $route.params.region, name: data.enemyTeam[index].name }}"
-                class="w-16 ml-1 overflow-hidden text-xs font-medium text-left text-blue-200 whitespace-no-wrap hover:text-white text-overflow"
+                class="w-16 ml-1 overflow-hidden text-xs font-medium text-left text-gray-500 whitespace-no-wrap hover:text-white text-overflow"
               >{{ data.enemyTeam[index].name }}</router-link>
               <div
                 v-else
-                class="w-16 ml-1 overflow-hidden text-xs font-medium text-left text-blue-200 whitespace-no-wrap text-overflow"
+                class="w-16 ml-1 overflow-hidden text-xs font-medium text-left text-gray-500 whitespace-no-wrap text-overflow"
               >{{ data.enemyTeam[index].name }}</div>
             </div>
           </div>
           <div class="flex flex-col items-center justify-center ml-auto">
-            <div class="text-lg font-medium text-teal-400">{{ (data.time)|secToTime }}</div>
+            <div class="text-lg font-medium text-white">{{ (data.time)|secToTime }}</div>
             <div class="text-xs font-medium text-white">{{ data.date }}</div>
             <div class="text-xs font-medium text-white">{{ data.fullDate.date }}</div>
             <div class="text-xs font-medium text-white">{{ data.fullDate.time }}</div>
@@ -219,7 +219,7 @@ export default {
     isSummonerProfile(account_id) {
       return {
         'font-bold text-white': this.account.accountId === account_id,
-        'text-blue-200': this.account.accountId !== account_id
+        'text-gray-500': this.account.accountId !== account_id
       }
     },
     ...mapActions('detailedMatch', ['matchDetails']),

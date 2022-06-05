@@ -17,7 +17,7 @@
       <div
         v-show="isOpen"
         ref="content"
-        class="bg-blue-1000 fixed z-50 py-2 rounded-md shadow"
+        class="bg-gray-900 fixed z-50 py-2 rounded-md shadow"
         :style="{ ...position }"
       >
         <slot></slot>

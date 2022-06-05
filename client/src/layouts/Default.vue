@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col min-h-screen overflow-hidden bg-blue-900">
+  <div class="flex flex-col min-h-screen overflow-hidden bg-black">
     <LazyBackground
       :image-source="require('@/assets/img/vi-warring-kingdoms.jpg')"
       image-class="absolute z-0 w-full h-200"
-      more-backgrounds="linear-gradient(180deg, rgba(42, 67, 101, 0) 0%, #2A4365 50%),"
+      more-backgrounds="linear-gradient(180deg, rgba(42, 67, 101, 0) 0%, #000000 100%),"
       transition-name="fade"
     ></LazyBackground>
 
